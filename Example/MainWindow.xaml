@@ -422,8 +422,8 @@
                     <TextBlock
                         VerticalAlignment="Center"
                         Text="Test Value: " />
-                    <TextBox Width="200" VerticalAlignment="Center" Text="{Binding Path=FilePathValue, Mode=TwoWay}" />
-
+                    <TextBox Width="150" VerticalAlignment="Center" Text="{Binding Path=FilePathValue, Mode=TwoWay}" />
+                    <Button Click="OnBrowseForFile">Browse to file</Button>
                 </StackPanel>
                 <StackPanel
                     Grid.Row="3" Grid.Column="2">

@@ -227,5 +227,16 @@ namespace Example
                 ImagePath = diag.FileName;
             }
         }
+
+        private void OnBrowseForFile(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog diag = new();
+            diag.Title = "Select file";
+            diag.Filter = "All Files|*.*";
+            if (diag.ShowDialog().GetValueOrDefault())
+            {
+                FilePathValue = diag.FileName;
+            }
+        }
     }
 }
