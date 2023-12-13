@@ -13,7 +13,7 @@ See the addendum to this readme for details on these parameters.
 
 Parameter syntax: 
 
-ConverterParameter='<boolValueToMatch-default true>|<brush definition on match>|<brush definiton on mismatch>'
+ConverterParameter='&lt;boolValueToMatch-default true&gt;|&lt;brush definition on match&gt;|&lt;brush definiton on mismatch&gt;'
 
 ## BytesToMBFormatter
 
@@ -31,7 +31,7 @@ This converter takes a datetime value and formats it to a human-readable format 
 
 Parameter syntax (optional):
 
-ConverterParameter='<Standard date/time format codes>'
+ConverterParameter='&lt;Standard date/time format codes&gt;'
 
 
 ## FalseBoolToVisibilityConverter
@@ -46,7 +46,7 @@ and another brush for a non-null value.  If the value is an empty string, it wil
 
 Parameter Syntax:
 
-ConverterParameter='<BrushIfNull>|<BrushIfNotNull>'
+ConverterParameter='&lt;BrushIfNull&gt;|&lt;BrushIfNotNull&gt;'
 
 
 ## NullToVisibilityConverter
@@ -54,7 +54,7 @@ Converts a nullable objects to Visibility, based on parameters passed.
 
 Parameter Syntax:
 
-ConverterParameter='<VisibilityIfNull>|<VisibilityIfNotNull>'
+ConverterParameter='&lt;VisibilityIfNull&gt;|&lt;VisibilityIfNotNull&gt;'
 
 ## NumberFormatter
 Formats a number, based on the culture and parameters passed.
@@ -69,19 +69,19 @@ Adds a value to a number, set by the parameter.  A negative number can be added 
 
 Parameter Syntax:
 
-ConverterParameter='<NumberToAdd>'
+ConverterParameter='&lt;NumberToAdd&gt;'
 
 ## NumericComparisonToBrushAnimationConverter
 Compares a numeric value to a number in the parameter and converts to a brush.
 
 Parameter Syntax:
-ConverterParameter='<operator>|<comparisonValueMatch>|<brushOnTrue>|<brushOnFalse>'
+ConverterParameter='&lt;operator&gt;|&lt;comparisonValueMatch&gt;|&lt;brushOnTrue&gt;|&lt;brushOnFalse&gt;'
 
 ## NumericComparisonToVisibilityConverter
 Compares a numeric value to a number in the parameter and converts to visibility.
 
 Parameter Syntax:
-ConverterParameter='<operator>|<comparisonValueMatch>|<VisibilityOnTrue>|<VisibilityOnFalse>'
+ConverterParameter='&lt;operator&gt;|&lt;comparisonValueMatch&gt;|&lt;VisibilityOnTrue&gt;|&lt;VisibilityOnFalse&gt;'
 
 ## OppositeBooleanConverter
 Converts a boolean to the opposite value.
@@ -90,7 +90,7 @@ Converts a boolean to the opposite value.
 Converts the path to an image file to a BitmapImage.
 
 Parameter Syntax (optional):
-ConverterParameter='<pathToImageIfImagePathNotFound>|<pathToImageIfImagePathErrors>'
+ConverterParameter='&lt;pathToImageIfImagePathNotFound&gt;|&lt;pathToImageIfImagePathErrors&gt;'
 
 Default "Image Not found" and "Image error" are provided, but can be overridden by either passing the path to these images in the parameter, or by
 setting them in the code-behind as follows:
@@ -104,28 +104,28 @@ PathToImageSourceConverter.ImageErrorImage = new Uri("pack://application:,,,/Rus
 Converts a number of seconds (type double) to a TimeSpan and formats it based on the parameter passed and culture.
 
 Parameter Syntax (optional):
-ConverterParameter='<StandardDate/timeFormatCode>'
+ConverterParameter='&lt;StandardDate/timeFormatCode&gt;'
 
 
 ## StringReplacementConverter
 Replace all occurrences of a part of a string to another string.
 
 Parameter Syntax:
-ConverterParameter='<stringToMatch>|<stringToReplaceTo>'
+ConverterParameter='&lt;stringToMatch&gt;|&lt;stringToReplaceTo&gt;'
 
 ## ValueMatchToAnimatedBrushConverter
 Converts a value to a brush based on matching on the parameter.  The value is converted to a string (.ToString()) to perform the match.
 
 
 Parameter Syntax:
-ConverterParameter='<operator>|<comparisonValueMatch>|<brushOnTrue>|<brushOnFalse>'
+ConverterParameter='&lt;operator&gt;|&lt;comparisonValueMatch&gt;|&lt;brushOnTrue&gt;|&lt;brushOnFalse&gt;'
 
 ## ValueMatchToVisibilityConverter
 Converts a value to visibility based on matching on the parameter.  The value is converted to a string (.ToString()) to perform the match.
 
 
 Parameter Syntax:
-ConverterParameter='<operator>|<comparisonValueMatch>|<visibilityOnTrue>|<visibilityOnFalse>'
+ConverterParameter='&lt;operator&gt;|&lt;comparisonValueMatch&gt;|&lt;visibilityOnTrue&gt;|&lt;visibilityOnFalse&gt;'
 
 # Addendum
 
@@ -141,24 +141,24 @@ Example: FROMCOLOR=Red;TOCOLOR=Blue;REPEATCOUNT=Forever;DURATION=1000;AUTOREVERS
 | Setting | Description |
 | - | - |
 | DEFAULT | Set brush to default value.  No other parameters can be set. |
-| COLOR=<value> | Sets the brush to a solid color.  All other parameters are ignored. |
-| FROMCOLOR=<value> | Sets the starting color for an animated brush. |
-| TOCOLOR=<value> | Sets the ending color for an animated brush. |
-| REPEATCOUNT=<value> | The number of times to repeat the animation.  Set to "Forever" to repeat forever. |
-| AUTOREVERSE=<value> | Whether or not to auto-reverse the animation.  Valid values are "True" and "False". |
+| COLOR=&lt;value&gt; | Sets the brush to a solid color.  All other parameters are ignored. |
+| FROMCOLOR=&lt;value&gt; | Sets the starting color for an animated brush. |
+| TOCOLOR=&lt;value&gt; | Sets the ending color for an animated brush. |
+| REPEATCOUNT=&lt;value&gt; | The number of times to repeat the animation.  Set to "Forever" to repeat forever. |
+| AUTOREVERSE=&lt;value&gt; | Whether or not to auto-reverse the animation.  Valid values are "True" and "False". |
 
 ## Comparison operators
 
 An operator will always be followed by the comparison value, such that it will work as <boundValue> <operator> <comparisonValue>,
-where <operator> and <comparisonValue> are set by ConverterParameter='<operator>|<comparisonValue>'.
+where <operator> and <comparisonValue> are set by ConverterParameter='&lt;operator&gt;|&lt;comparisonValue&gt;'.
 
 Valid operators:
 
 | Operator | Description |
 | - | - |
-| < (or '&lt;') | Bound value less than comparison value |
-| <= (or '&lt;=') | Bound value less than or equal to comparison value |
-| > (or '&gt;') | Bound value greater than comparison value |
-| >= (or '&gt;=') | Bound value greater than or equal to comparison value |
+| < (or '&amp;lt;') | Bound value less than comparison value |
+| <= (or '&amp;lt;=') | Bound value less than or equal to comparison value |
+| > (or '&amp;gt;') | Bound value greater than comparison value |
+| >= (or '&amp;gt;=') | Bound value greater than or equal to comparison value |
 | = | Bound value equal to comparison value |
 | != | Bound value not equal to comparison value |
