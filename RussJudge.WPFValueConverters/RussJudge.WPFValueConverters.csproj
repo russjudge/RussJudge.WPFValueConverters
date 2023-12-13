@@ -15,6 +15,8 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>WPF;ValueConveter</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <RepositoryUrl>https://github.com/russjudge/RussJudge.WPFValueConverters</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
