@@ -4,7 +4,7 @@ using System.Windows.Data;
 
 namespace RussJudge.WPFValueConverters
 {
-    [ValueConversion(typeof(long), typeof(TimeSpan))]
+    [ValueConversion(typeof(double), typeof(TimeSpan))]
     public class SecondsToTimeSpanConverter : IValueConverter
     {
         public object Convert(object? value, Type targetType, object parameter, CultureInfo culture)
@@ -15,7 +15,7 @@ namespace RussJudge.WPFValueConverters
             }
             else
             {
-                long val = System.Convert.ToInt64(value);
+                double val = System.Convert.ToDouble(value);
 
                 TimeSpan ts = TimeSpan.FromSeconds(val);
                 if (parameter is string parm)

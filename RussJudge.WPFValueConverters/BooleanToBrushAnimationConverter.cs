@@ -19,7 +19,7 @@ namespace RussJudge.WPFValueConverters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
-            //Parameters = <boolValueToMatch-default true>|<FromColor-default transparent>|<ToColor-default red>|<repeatCount(# or "Forever")-default forever>|<animation duration in milliseconds-default 1000>|<autoreverse-default true>>
+            //Parameters = <boolValueToMatch-default true>|<brush definition on match>|<brush definiton on mismatch>
             bool? inValue = null;
             if (value is bool val)
             {
