@@ -138,6 +138,8 @@ Parameters are case-insensitive.
 
 Example: FROMCOLOR=Red;TOCOLOR=Blue;REPEATCOUNT=Forever;DURATION=1000;AUTOREVERSE=True
 
+| Setting | Description |
+| - | - |
 | DEFAULT | Set brush to default value.  No other parameters can be set. |
 | COLOR=<value> | Sets the brush to a solid color.  All other parameters are ignored. |
 | FROMCOLOR=<value> | Sets the starting color for an animated brush. |
@@ -152,6 +154,8 @@ where <operator> and <comparisonValue> are set by ConverterParameter='<operator>
 
 Valid operators:
 
+| Operator | Description |
+| - | - |
 | < (or '&lt;') | Bound value less than comparison value |
 | <= (or '&lt;=') | Bound value less than or equal to comparison value |
 | > (or '&gt;') | Bound value greater than comparison value |
