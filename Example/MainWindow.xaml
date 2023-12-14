@@ -18,7 +18,7 @@
         <converters:NullToAnimatedBrushConverter x:Key="NullToAnimatedBrushConverter" />
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
         <converters:NumberFormatter x:Key="NumberFormatter" />
-        <converters:NumericAdjustmentConverter x:Key="NumericAdjustmentConverter" />
+        <converters:NumericMathConverter x:Key="NumericMathConverter" />
         <converters:NumericComparisonToBrushAnimationConverter x:Key="NumericComparisonToBrushAnimationConverter" />
         <converters:NumericComparisonToVisibilityConverter x:Key="NumericComparisonToVisibilityConverter" />
         <converters:OppositeBoolConverter x:Key="OppositeBoolConverter" />
@@ -29,6 +29,7 @@
         <converters:ValueMatchToVisibilityConverter x:Key="ValueMatchToVisibilityConverter" />
 
     </Window.Resources>
+    <ScrollViewer>
     <DockPanel>
 
         <GroupBox DockPanel.Dock="Top">
@@ -328,6 +329,7 @@
             <GroupBox.Header>
                 <TextBlock Text="Value Formatting Converters" FontWeight="Bold" />
             </GroupBox.Header>
+            
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -366,9 +368,11 @@
 
 
                 <TextBlock
+                    Background="#FFC4E2FD"
                     Grid.Row="1" Grid.Column="0"
                     Text="* CurrencyFormatter: " />
                 <StackPanel
+                    Background="#FFC4E2FD"
                     Grid.Row="1" Grid.Column="1"
                     Orientation="Horizontal" >
                     <TextBlock
@@ -376,6 +380,7 @@
                     <TextBox Width="120" Text="{Binding Path=CurrencyValue, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel
+                    Background="#FFC4E2FD"
                     Grid.Row="1" Grid.Column="2"
                     Orientation="Horizontal" >
                     <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result: " />
@@ -413,10 +418,12 @@
                 
                 
                 <TextBlock
+                    Background="#FFC4E2FD"
                     Grid.Row="3" Grid.Column="0"
                     VerticalAlignment="Center"
                     Text="* FullFilePathToNameConverter: " />
                 <StackPanel
+                    Background="#FFC4E2FD"
                     Grid.Row="3" Grid.Column="1"
                     Orientation="Horizontal" >
                     <TextBlock
@@ -426,6 +433,7 @@
                     <Button Click="OnBrowseForFile">Browse to file</Button>
                 </StackPanel>
                 <StackPanel
+                    Background="#FFC4E2FD"
                     Grid.Row="3" Grid.Column="2">
                     <WrapPanel>
                         <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result: " />
@@ -469,10 +477,12 @@
 
 
                 <TextBlock
+                    Background="#FFC4E2FD"
                     Grid.Row="5" Grid.Column="0"
                     VerticalAlignment="Center"
-                    Text="* NumericAdjustmentConverter: " />
+                    Text="* NumericMathConverter: " />
                 <StackPanel
+                    Background="#FFC4E2FD"
                     Grid.Row="5" Grid.Column="1"
                     Orientation="Horizontal" >
                     <TextBlock
@@ -481,14 +491,24 @@
                     <TextBox Width="200" VerticalAlignment="Center" Text="{Binding Path=NumericValue, Mode=TwoWay}" />
 
                 </StackPanel>
-                <StackPanel
+                
+                <StackPanel 
+                    Background="#FFC4E2FD"
                     Grid.Row="5" Grid.Column="2">
                     
                     <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='-17'): " />
-                        <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericAdjustmentConverter}, ConverterParameter='-17'}" />
+                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='*|-17'): " />
+                        <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericMathConverter}, ConverterParameter='*|-17'}" />
                     </WrapPanel>
-                  
+                    <WrapPanel>
+                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='/|-17'): " />
+                        <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericMathConverter}, ConverterParameter='/|-17'}" />
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='MAX|7'): " />
+                        <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericMathConverter}, ConverterParameter='MAX|7'}" />
+                    </WrapPanel>
+
                 </StackPanel>
 
 
@@ -519,15 +539,13 @@
                     </WrapPanel>
 
                 </StackPanel>
-
-
-
-
                 <TextBlock
+                    Background="#FFC4E2FD"
                     Grid.Row="7" Grid.Column="0"
                     VerticalAlignment="Center"
                     Text="* StringReplacementConverter: " />
                 <StackPanel
+                    Background="#FFC4E2FD"
                     Grid.Row="7" Grid.Column="1"
                     Orientation="Horizontal" >
                     <TextBlock
@@ -537,6 +555,7 @@
 
                 </StackPanel>
                 <StackPanel
+                    Background="#FFC4E2FD"
                     Grid.Row="7" Grid.Column="2">
                     <WrapPanel>
                         <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='Test|This really works!'): " />
@@ -550,6 +569,7 @@
                 </StackPanel>
 
             </Grid>
+            
         </GroupBox>
         <GroupBox DockPanel.Dock="Top">
             <GroupBox.Header>
@@ -566,4 +586,5 @@
             </StackPanel>
         </GroupBox>
     </DockPanel>
+    </ScrollViewer>
 </Window>

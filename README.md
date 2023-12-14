@@ -65,6 +65,8 @@ ConverterParameter='<Standard number format codes>'
 
 
 ## NumericAdjustmentConverter
+*Deprecated* *Use* *NumericMathConverter* *instead*.
+
 Adds a value to a number, set by the parameter.  A negative number can be added to the value.
 
 Parameter Syntax:
@@ -82,6 +84,13 @@ Compares a numeric value to a number in the parameter and converts to visibility
 
 Parameter Syntax:
 ConverterParameter='&lt;operator&gt;|&lt;comparisonValueMatch&gt;|&lt;VisibilityOnTrue&gt;|&lt;VisibilityOnFalse&gt;'
+
+## NumericMathConverter
+Adjusts a bound value by a number, set by the parameter.  See the Addendum for valid Math Operators.
+
+Parameter Syntax:
+
+ConverterParameter='&lt;mathOperator&gt;|&lt;NumberToAdd&gt;'
 
 ## OppositeBooleanConverter
 Converts a boolean to the opposite value.
@@ -149,16 +158,62 @@ Example: FROMCOLOR=Red;TOCOLOR=Blue;REPEATCOUNT=Forever;DURATION=1000;AUTOREVERS
 
 ## Comparison operators
 
-An operator will always be followed by the comparison value, such that it will work as <boundValue> <operator> <comparisonValue>,
-where <operator> and <comparisonValue> are set by ConverterParameter='&lt;operator&gt;|&lt;comparisonValue&gt;'.
+An operator will always be followed by the comparison value, such that it will work as &lt;boundValue&gt; &gtl;operator&gt; &lt;comparisonValue&gt;,
+where &lt;operator&gt; and &lt;comparisonValue&gt; are set by ConverterParameter='&lt;operator&gt;|&lt;comparisonValue&gt;'.
 
 Valid operators:
 
 | Operator | Description |
 | - | - |
-| < (or '&amp;lt;') | Bound value less than comparison value |
-| <= (or '&amp;lt;=') | Bound value less than or equal to comparison value |
-| > (or '&amp;gt;') | Bound value greater than comparison value |
-| >= (or '&amp;gt;=') | Bound value greater than or equal to comparison value |
+| &lt; (or '&amp;lt;') | Bound value less than comparison value |
+| &lt;= (or '&amp;lt;=') | Bound value less than or equal to comparison value |
+| &gt; (or '&amp;gt;') | Bound value greater than comparison value |
+| &gt;= (or '&amp;gt;=') | Bound value greater than or equal to comparison value |
 | = | Bound value equal to comparison value |
 | != | Bound value not equal to comparison value |
+
+## Math operators
+
+As with comparison operators, a matho operator will always be followed by a numeric value to apply to the bound value.  The bound value must be numeric.
+
+For bitwise operators, the bound value will be converted to a long before applying the operator and the parameter value.  For math operators, the value is converted to a double
+before applying the paramter value.
+
+Valid operators:
+
+| Operator | Description |
+| - | - |
+| + | Add to the bound value |
+| - | Subtract from the bound value |
+| * | Multiply to the bound value |
+| / | divide from the bound value |
+| % | return the modulo of the bound value and parameter |
+| pow | return the power of the parameter to the bound value |
+| abs | return the absolute value of the bound value (adjustment value parameter is ignored) |
+| sin | return the sine of the bound value (adjustment value parameter is ignored) |
+| sinh | return the hyperbolic sine of the bound value (adjustment value parameter is ignored) |
+| cos | return the cosine of the bound value (adjustment value parameter is ignored) |
+| cosh | return the hyperbolic cosine of the bound value (adjustment value parameter is ignored) |
+| cbrt | return the cube root of the bound value (adjustment value parameter is ignored) |
+| min | return the smaller of the bound value versus the adjustment parameter value |
+| max | return the smaller of the bound value versus the adjustment parameter value |
+| acos | return the angle whose cosine is the bound value (adjustment value parameter is ignored) |
+| acosh | return the angle whose hyperbolic cosine is the bound value (adjustment value parameter is ignored) |
+| asin | return the angle whose sine is the bound value (adjustment value parameter is ignored) |
+| asinh | return the angle whose hyperbolic sine is the bound value (adjustment value parameter is ignored) |
+| tan | return the tangent of the bound value (adjustment value parameter is ignored) |
+| tanh | return the hyperbolic tangent of the bound value (adjustment value parameter is ignored) |
+| atan | return the angle whose tangent is the bound value (adjustment value parameter is ignored) |
+| atanh | return the angle whose hyperbolic tangent is the bound value (adjustment value parameter is ignored) |
+| atan2 | return the angle whose tangent is the quotent between the bound value and the adjustment value parameter |
+| ceiling | returns the smallest integral greater than or equal to the bound value (adjustment value parameter is ignored) |
+| floor | returns the largest integral less than or equal to the bound value (adjustment value parameter is ignored) |
+| round | returns the bound value rounded by to the number of decimal places specified by the adjustment value parameter |
+| sqrt | returns the square root of the bound value (adjustment value parameter is ignored) |
+| log | returns the logarithm of the bound value where the base value is the adjustment value. |
+| &amp; | returns a bitwise "and" operation with the adjustment value |
+| \ | returns a bitwise "or" operation with the adjustment value. |
+| ^ | returns a bitwise "xor" operation with the adjustment value. |
+| &lt;&lt; (or &amp;lt;&amp;lt;) | left-shift the bound value by the adjustment value |
+| &gt;&gt; (or &amp;gt;&amp;gt;) | right-shift the bound value by the adjustment value |
+| &gt;&gt;&gt; (or &amp;gt;&amp;gt;&amp;gt;) | unsigned right-shift the bound value by the adjustment value |

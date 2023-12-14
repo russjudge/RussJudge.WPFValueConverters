@@ -5,6 +5,7 @@ using System.Windows.Data;
 namespace RussJudge.WPFValueConverters
 {
     [ValueConversion(typeof(decimal), typeof(decimal))]
+    [Obsolete("Use \"NumericMathConverter\" instead.")]
     public class NumericAdjustmentConverter : IValueConverter
     {
         public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
