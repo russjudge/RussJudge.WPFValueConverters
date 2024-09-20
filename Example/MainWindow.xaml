@@ -10,6 +10,7 @@
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <converters:BooleanToBrushAnimationConverter x:Key="BooleanToBrushAnimationConverter" />
+        <converters:BooleanToIntegerConverter x:Key="BooleanToIntegerConverter" />
         <converters:BytesToMBFormatter x:Key="BytesToMBFormatter" />
         <converters:CurrencyFormatter x:Key="CurrencyFormatter" />
         <converters:DateFormatter x:Key="DateFormatter" />
@@ -30,119 +31,119 @@
 
     </Window.Resources>
     <ScrollViewer>
-    <DockPanel>
+        <DockPanel>
 
-        <GroupBox DockPanel.Dock="Top">
-            <GroupBox.Header>
-                <TextBlock Text="Syntax Information" FontWeight="Bold" />
-            </GroupBox.Header>
-            <StackPanel>
-                <GroupBox>
-                    <GroupBox.Header>
-                        <StackPanel Orientation="Horizontal" >
-                            <TextBlock Text="Brush definition syntax: " FontStyle="Italic" />
-                            <TextBlock Padding="10,0,0,0" Text="parm=value;parm=value;parm=value    (delimit with semi-colon, all parameters are optional and are NOT case-sensitive)" />
-                        </StackPanel>
-                    </GroupBox.Header>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
+            <GroupBox DockPanel.Dock="Top">
+                <GroupBox.Header>
+                    <TextBlock Text="Syntax Information" FontWeight="Bold" />
+                </GroupBox.Header>
+                <StackPanel>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Text="Brush definition syntax: " FontStyle="Italic" />
+                                <TextBlock Padding="10,0,0,0" Text="parm=value;parm=value;parm=value    (delimit with semi-colon, all parameters are optional and are NOT case-sensitive)" />
+                            </StackPanel>
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
 
-                            <ColumnDefinition Width="20" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <TextBlock
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock
                             Grid.Row="0" Grid.Column="0"
                             Text="DEFAULT"  />
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="0" Grid.Column="2"
                             Foreground="RosyBrown" Text="By itself, no equal sign.  Will cause the brush to be DependencyProperty.UnsetValue.  This is the default value for the brush." />
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="1" Grid.Column="0"
                             Text="COLOR=&lt;value&gt;"  />
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="1" Grid.Column="2"
                             Foreground="RosyBrown" Text="Sets the brush to the specified color, with no animation.  All other parameters will be ignored."  />
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="2" Grid.Column="0"
                             Text="FROMCOLOR=&lt;value&gt;" />
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="2" Grid.Column="2"
                             Foreground="RosyBrown" Text="Sets the color for the start of the animation." />
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="3" Grid.Column="0"
                             Text="TOCOLOR=&lt;value&gt;"/>
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="3" Grid.Column="2"
                             Foreground="RosyBrown" Text="Sets the color for the end of the animation."/>
 
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="4" Grid.Column="0"
                             Text="REPEATCOUNT=&lt;value&gt;" />
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="4" Grid.Column="2"
                             Foreground="RosyBrown" Text="Sets the number of times to repeat the animation.  Set to &quot;FOREVER&quot; to repeat forever." />
 
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="5" Grid.Column="0"
                             Text="DURATION=&lt;value&gt;" />
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="5" Grid.Column="2"
                             Foreground="RosyBrown" Text="Sets the length of time in milliseconds for the animation to run." />
 
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="6" Grid.Column="0"
                             Text="AUTOREVERSE=&lt;value&gt;" />
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="6" Grid.Column="2"
                             Foreground="RosyBrown" Text="Sets whether or not the animation should automatically reverse.  Valid values are &quot;TRUE&quot; or &quot;FALSE&quot;." />
-                    </Grid>
-                </GroupBox>
-                <GroupBox>
-                    <GroupBox.Header>
-                        <StackPanel Orientation="Horizontal" >
-                            <TextBlock Text="Operators for Comparison Converters" FontStyle="Italic" />
-                        </StackPanel>
-                    </GroupBox.Header>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="20"/>
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <!--
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Text="Operators for Comparison Converters" FontStyle="Italic" />
+                            </StackPanel>
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <!--
                         "&lt;" or "<" => value < compareValue,
 "&lt;=" or "<=" => value <= compareValue,
 "&gt;" or ">" => value > compareValue,
@@ -150,441 +151,447 @@
 "=" or "==" => value == compareValue,
 "!=" => value != compareValue,
                         -->
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="0" Grid.Column="0"
                             Text="&lt; or '&amp;lt;'" />
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="0" Grid.Column="2"
                             Foreground="RosyBrown"
                             Text="Value less than comparison value" />
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="1" Grid.Column="0"
                             Text="&lt;= or '&amp;lt;='" />
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="1" Grid.Column="2"
                             Foreground="RosyBrown"
                             Text="Value less than or equal to comparison value" />
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="2" Grid.Column="0"
                             Text="&gt; or '&amp;gt;'" />
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="2" Grid.Column="2"
                             Foreground="RosyBrown"
                             Text="Value greater than comparison value" />
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="3" Grid.Column="0"
                             Text="&gt;= or '&amp;gt;='" />
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="3" Grid.Column="2"
                             Foreground="RosyBrown"
                             Text="Value greater than or equal to comparison value" />
 
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="4" Grid.Column="0"
                             Text="=" />
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="4" Grid.Column="2"
                             Foreground="RosyBrown"
                             Text="Value equal to comparison value" />
 
 
 
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="5" Grid.Column="0"
                             Text="!=" />
-                        <TextBlock
+                            <TextBlock
                             Grid.Row="5" Grid.Column="2"
                             Foreground="RosyBrown"
                             Text="Value not equal to comparison value" />
 
 
-                    </Grid>
-                </GroupBox>
-            </StackPanel>
-        </GroupBox>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </GroupBox>
 
-        <GroupBox DockPanel.Dock="Top">
-            <GroupBox.Header>
-                <TextBlock Text="Boolean Converters" FontWeight="Bold" />
-            </GroupBox.Header>
-            <StackPanel>
-                <CheckBox
+            <GroupBox DockPanel.Dock="Top">
+                <GroupBox.Header>
+                    <TextBlock Text="Boolean Converters" FontWeight="Bold" />
+                </GroupBox.Header>
+                <StackPanel>
+                    <CheckBox
                     Padding="0,0,0,10"
                     IsChecked="{Binding Path=TestBoolean, Mode=TwoWay}" >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Test Boolean" />
+                            <TextBlock Text="Tested value:" FontStyle="Italic" Padding="10,0,10,0" />
+                            <TextBlock Text="{Binding Path=TestBoolean, Mode=OneWay}" />
+                        </StackPanel>
+                    </CheckBox>
+
+                    <TextBlock
+                        Text="* BooleanToBrushAnimationConverter (On Background).  Parameter Syntax: &lt;BoolMatchValue&gt;|&lt;BrushOnMatch&gt;|&lt;BrushOnNotMatch&gt;"
+                        Background="{Binding Path=TestBoolean, Converter={StaticResource BooleanToBrushAnimationConverter},
+                        ConverterParameter='True|FROMCOLOR=Transparent;TOCOLOR=Red;REPEATCOUNT=Forever;DURATION=1000;AUTOREVERSE=True|DEFAULT'}" />
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Test Boolean" />
-                        <TextBlock Text="Tested value:" FontStyle="Italic" Padding="10,0,10,0" />
-                        <TextBlock Text="{Binding Path=TestBoolean, Mode=OneWay}" />
+                        <TextBlock
+                            Text="* BooleanToIntegerConverter. Parameter Syntax: &lt;ValueIfTrue&gt;|&lt;ValueIfFalse&gt;" />
+                        <TextBlock
+                            Padding="5,0,0,0"
+                            Text="{Binding Path=TestBoolean, Converter={StaticResource BooleanToIntegerConverter}, ConverterParameter='23|10'}" />
                     </StackPanel>
-                </CheckBox>
-
-                <TextBlock
-                    Text="* BooleanToBrushAnimationConverter (On Background).  Parameter Syntax: &lt;BoolMatchValue&gt;|&lt;BrushOnMatch&gt;|&lt;BrushOnNotMatch&gt;"
-                    Background="{Binding Path=TestBoolean, Converter={StaticResource BooleanToBrushAnimationConverter},
-                    ConverterParameter='True|FROMCOLOR=Transparent;TOCOLOR=Red;REPEATCOUNT=Forever;DURATION=1000;AUTOREVERSE=True|DEFAULT'}" />
-
-                <TextBlock
+                    <TextBlock
                     Text="* FalseBoolToVisibilityConverter (only visible when TestBoolean is False)."
                     Visibility="{Binding Path=TestBoolean, Converter={StaticResource FalseBoolToVisibilityConverter}}" />
 
-                <CheckBox IsChecked="{Binding Path=TestBoolean, Converter={StaticResource OppositeBoolConverter}}" Content="OppositeBooleanConverter (Checked only when TestBoolean is False)" />
-            </StackPanel>
-        </GroupBox>
-        <GroupBox DockPanel.Dock="Top">
-            <GroupBox.Header>
-                <TextBlock Text="Value Comparison Converters" FontWeight="Bold" />
-            </GroupBox.Header>
-            <StackPanel>
-                <GroupBox>
-                    <GroupBox.Header>
-                        <StackPanel
+                    <CheckBox IsChecked="{Binding Path=TestBoolean, Converter={StaticResource OppositeBoolConverter}}" Content="OppositeBooleanConverter (Checked only when TestBoolean is False)" />
+                </StackPanel>
+            </GroupBox>
+            <GroupBox DockPanel.Dock="Top">
+                <GroupBox.Header>
+                    <TextBlock Text="Value Comparison Converters" FontWeight="Bold" />
+                </GroupBox.Header>
+                <StackPanel>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <StackPanel
                             Margin="0,0,0,10"
                             Orientation="Horizontal">
-                            <TextBlock FontStyle="Italic" Text="Null/Object testing" Padding="0,0,20,0" />
-                            <CheckBox
+                                <TextBlock FontStyle="Italic" Text="Null/Object testing" Padding="0,0,20,0" />
+                                <CheckBox
                                 IsChecked="{Binding Path=TestNullableObject, Mode=TwoWay}">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Nullable Object" />
-                                    <TextBlock Text="Tested value:" FontStyle="Italic" Padding="10,0,10,0" />
-                                    <TextBlock
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Nullable Object" />
+                                        <TextBlock Text="Tested value:" FontStyle="Italic" Padding="10,0,10,0" />
+                                        <TextBlock
                                         Visibility="{Binding Path=TestNullableObject, Converter={StaticResource FalseBoolToVisibilityConverter}}"
                                         Text="Is an object" />
-                                    <TextBlock
+                                        <TextBlock
                                         Visibility="{Binding Path=TestNullableObject, Converter={StaticResource BooleanToVisibilityConverter}}"
                                         Text="Is null"  />
-                                </StackPanel>
-                            </CheckBox>
-                        </StackPanel>
-                    </GroupBox.Header>
-                    <StackPanel>
-                        <TextBlock
+                                    </StackPanel>
+                                </CheckBox>
+                            </StackPanel>
+                        </GroupBox.Header>
+                        <StackPanel>
+                            <TextBlock
                             Text="* NullToAnimatedBrushConverter (On Background).  Parameter Syntax: &lt;BrushOnMatch&gt;|&lt;BrushOnNotMatch&gt;"
                             Background="{Binding Path=TheNullableObject, Mode=OneWay, Converter={StaticResource NullToAnimatedBrushConverter},
                             ConverterParameter='FROMCOLOR=Green;TOCOLOR=Yellow;REPEATCOUNT=Forever;DURATION=1000;AUTOREVERSE=True|COLOR=LightGreen;'}" />
-                        <TextBlock
+                            <TextBlock
                             TextWrapping="Wrap"
                             Visibility="{Binding Path=TheNullableObject, Mode=OneWay, Converter={StaticResource NullToVisibilityConverter},
                             ConverterParameter='Collapsed|Visible'}"
                             Text="* NullToVisibilityConverter (Visibility collapsed when object is null). Parameter Syntax: &lt;VisibilityOnNull&gt;|&lt;VisibilityOnNotNull&gt;.   Second parameter defaults to opposite of first parameter (Collapsed or Visible)" />
-                    </StackPanel>
-                </GroupBox>
-                <GroupBox>
-                    <GroupBox.Header>
-                        <StackPanel
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <StackPanel
                             Margin="0,0,0,10"
                             Orientation="Horizontal">
-                            <TextBlock FontStyle="Italic" Text="Numeric Match testing" Padding="0,0,20,0" />
+                                <TextBlock FontStyle="Italic" Text="Numeric Match testing" Padding="0,0,20,0" />
 
-                            <TextBlock Text="Numeric Value:" Padding="0,0,5,0" />
-                            <TextBox Text="{Binding Path=NumericValue, Mode=TwoWay}" Width="100"/>
-                        </StackPanel>
-                    </GroupBox.Header>
-                    <StackPanel>
+                                <TextBlock Text="Numeric Value:" Padding="0,0,5,0" />
+                                <TextBox Text="{Binding Path=NumericValue, Mode=TwoWay}" Width="100"/>
+                            </StackPanel>
+                        </GroupBox.Header>
+                        <StackPanel>
 
-                        <TextBlock
+                            <TextBlock
                             TextWrapping="Wrap"
                             Foreground="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericComparisonToBrushAnimationConverter},
                             ConverterParameter='&lt;|10|DEFAULT|COLOR=White'}"
                             Background="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericComparisonToBrushAnimationConverter},
                             ConverterParameter='&lt;|10|FROMCOLOR=Aqua;TOCOLOR=LightBlue;REPEATCOUNT=Forever;DURATION=1000;AUTOREVERSE=True|FROMCOLOR=Red;TOCOLOR=Maroon;REPEATCOUNT=Forever;DURATION=1000;AUTOREVERSE=True'}"
                             Text="* NumericComparisonToBrushConverter   (On Background--if Numeric &lt; 10).  Parameter Syntax: &lt;operator&gt;|&lt;comparisonValue&gt;|&lt;BrushDefinitionIfTrue&gt;|&lt;BrushDefinitionIfFalse&gt;" />
-                        <TextBlock
+                            <TextBlock
                             Visibility="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericComparisonToVisibilityConverter},
                             ConverterParameter='&gt;=|15|Collapsed|Visible'}"
                             TextWrapping="Wrap"
                             Text="NumericComparisonToVisibilityConverter  (Collapsed--if Numeric &gt;= 15). Parameter Syntax: &lt;operator&gt;|&lt;comparisonValue&gt;|&lt;VisibilityOnTrue&gt;|&lt;VisibilityOnFalse&gt;" />
-                    </StackPanel>
-                </GroupBox>
-                <GroupBox>
-                    <GroupBox.Header>
-                        <StackPanel
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <StackPanel
                             Margin="0,0,0,10"
                             Orientation="Horizontal">
-                            <TextBlock FontStyle="Italic" Text="Value Match testing" Padding="0,0,20,0" />
+                                <TextBlock FontStyle="Italic" Text="Value Match testing" Padding="0,0,20,0" />
 
-                            <TextBlock Text="Value:" Padding="0,0,5,0" />
-                            <TextBox Text="{Binding Path=Value, Mode=TwoWay}" Width="100"/>
-                        </StackPanel>
-                    </GroupBox.Header>
-                    <StackPanel>
-                        <TextBlock
+                                <TextBlock Text="Value:" Padding="0,0,5,0" />
+                                <TextBox Text="{Binding Path=Value, Mode=TwoWay}" Width="100"/>
+                            </StackPanel>
+                        </GroupBox.Header>
+                        <StackPanel>
+                            <TextBlock
                             Background="{Binding Path=Value, Mode=OneWay, Converter={StaticResource ValueMatchToAnimatedBrushConverter}, 
                             ConverterParameter='=|Test|COLOR=LightGreen|COLOR=Yellow'}"
                             TextWrapping="Wrap"
                             Text="* ValueMatchToAnimatedBrushConverter (On Background--if comparisonValue matches 'Test').  Parameter Syntax: &lt;operator&gt;|&lt;comparisonValue&gt;|&lt;BrushDefinitionIfMatched&gt;|&lt;BrushDefinitionIfNotMatched&gt;" />
-                        <TextBlock
+                            <TextBlock
                             Visibility="{Binding Path=Value, Mode=OneWay, Converter={StaticResource ValueMatchToVisibilityConverter},
                             ConverterParameter='=|Test|Collapsed|Visible'}"
                             TextWrapping="Wrap"
                             Text="* ValueMatchToVisibilityConverter  (Collapsed--if comparisonValue matches 'Test').  Parameter Syntax: &lt;operator&gt;|&lt;comparisonValue&gt;|&lt;VisibilityIfMatched&gt;|&lt;VisibilityIfNotMatched&gt;" />
-                    </StackPanel>
-                </GroupBox>
-            </StackPanel>
-        </GroupBox>
-        <GroupBox DockPanel.Dock="Top">
-            <GroupBox.Header>
-                <TextBlock Text="Value Formatting Converters" FontWeight="Bold" />
-            </GroupBox.Header>
-            
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox DockPanel.Dock="Top">
+                <GroupBox.Header>
+                    <TextBlock Text="Value Formatting Converters" FontWeight="Bold" />
+                </GroupBox.Header>
 
-                <TextBlock
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
                     Grid.Row="0" Grid.Column="0"
                     Text="* BytesToMBFormatter: " />
-                <StackPanel
+                    <StackPanel
                     Grid.Row="0" Grid.Column="1"
                     Orientation="Horizontal" >
-                    <TextBlock
+                        <TextBlock
                         Text="Test Value: " />
-                    <TextBox Width="120" Text="{Binding Path=ByteValue, Mode=TwoWay}"/>
-                </StackPanel>
-                <StackPanel
+                        <TextBox Width="120" Text="{Binding Path=ByteValue, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel
                     Grid.Row="0" Grid.Column="2"
                     Orientation="Horizontal" >
-                    <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result:" />
-                    <TextBlock Text="{Binding Path=ByteValue, Mode=OneWay, Converter={StaticResource BytesToMBFormatter}}" />
-                </StackPanel>
+                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result:" />
+                        <TextBlock Text="{Binding Path=ByteValue, Mode=OneWay, Converter={StaticResource BytesToMBFormatter}}" />
+                    </StackPanel>
 
 
-                <TextBlock
+                    <TextBlock
                     Background="#FFC4E2FD"
                     Grid.Row="1" Grid.Column="0"
                     Text="* CurrencyFormatter: " />
-                <StackPanel
+                    <StackPanel
                     Background="#FFC4E2FD"
                     Grid.Row="1" Grid.Column="1"
                     Orientation="Horizontal" >
-                    <TextBlock
+                        <TextBlock
                         Text="Test Value: " />
-                    <TextBox Width="120" Text="{Binding Path=CurrencyValue, Mode=TwoWay}"/>
-                </StackPanel>
-                <StackPanel
+                        <TextBox Width="120" Text="{Binding Path=CurrencyValue, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel
                     Background="#FFC4E2FD"
                     Grid.Row="1" Grid.Column="2"
                     Orientation="Horizontal" >
-                    <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result: " />
-                    <TextBlock Text="{Binding Path=CurrencyValue, Mode=OneWay, Converter={StaticResource CurrencyFormatter}}" />
-                </StackPanel>
+                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result: " />
+                        <TextBlock Text="{Binding Path=CurrencyValue, Mode=OneWay, Converter={StaticResource CurrencyFormatter}}" />
+                    </StackPanel>
 
 
 
-                <TextBlock
+                    <TextBlock
                     Grid.Row="2" Grid.Column="0"
                     VerticalAlignment="Center"
                     Text="* DateFormatter: " />
-                <StackPanel
+                    <StackPanel
                     Grid.Row="2" Grid.Column="1"
                     Orientation="Horizontal" >
-                    <TextBlock
+                        <TextBlock
                         VerticalAlignment="Center"
                         Text="Test Value: " />
-                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Path=DateValue, Mode=TwoWay}" />
+                        <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Path=DateValue, Mode=TwoWay}" />
 
-                </StackPanel>
-                <StackPanel
+                    </StackPanel>
+                    <StackPanel
                     Grid.Row="2" Grid.Column="2">
-                    <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result  (Default, no parm): " />
-                        <TextBlock Text="{Binding Path=DateValue, Mode=OneWay, Converter={StaticResource DateFormatter}}" />
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='MM/dd/yyyy|Not Available'): " />
-                        <TextBlock Text="{Binding Path=DateValue, Mode=OneWay, Converter={StaticResource DateFormatter}, ConverterParameter='MM/dd/yyyy|Not Available'}" />
-                    </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result  (Default, no parm): " />
+                            <TextBlock Text="{Binding Path=DateValue, Mode=OneWay, Converter={StaticResource DateFormatter}}" />
+                        </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='MM/dd/yyyy|Not Available'): " />
+                            <TextBlock Text="{Binding Path=DateValue, Mode=OneWay, Converter={StaticResource DateFormatter}, ConverterParameter='MM/dd/yyyy|Not Available'}" />
+                        </WrapPanel>
 
-                </StackPanel>
+                    </StackPanel>
 
-                
-                
-                <TextBlock
+
+
+                    <TextBlock
                     Background="#FFC4E2FD"
                     Grid.Row="3" Grid.Column="0"
                     VerticalAlignment="Center"
                     Text="* FullFilePathToNameConverter: " />
-                <StackPanel
+                    <StackPanel
                     Background="#FFC4E2FD"
                     Grid.Row="3" Grid.Column="1"
                     Orientation="Horizontal" >
-                    <TextBlock
+                        <TextBlock
                         VerticalAlignment="Center"
                         Text="Test Value: " />
-                    <TextBox Width="150" VerticalAlignment="Center" Text="{Binding Path=FilePathValue, Mode=TwoWay}" />
-                    <Button Click="OnBrowseForFile">Browse to file</Button>
-                </StackPanel>
-                <StackPanel
+                        <TextBox Width="150" VerticalAlignment="Center" Text="{Binding Path=FilePathValue, Mode=TwoWay}" />
+                        <Button Click="OnBrowseForFile">Browse to file</Button>
+                    </StackPanel>
+                    <StackPanel
                     Background="#FFC4E2FD"
                     Grid.Row="3" Grid.Column="2">
-                    <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result: " />
-                        <TextBlock Text="{Binding Path=FilePathValue, Mode=OneWay, Converter={StaticResource FullFilePathToNameConverter}}" />
-                    </WrapPanel>
-                   
-
-                </StackPanel>
+                        <WrapPanel>
+                            <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result: " />
+                            <TextBlock Text="{Binding Path=FilePathValue, Mode=OneWay, Converter={StaticResource FullFilePathToNameConverter}}" />
+                        </WrapPanel>
 
 
+                    </StackPanel>
 
-                <TextBlock
+
+
+                    <TextBlock
                     Grid.Row="4" Grid.Column="0"
                     VerticalAlignment="Center"
                     Text="* NumberFormatter: " />
-                <StackPanel
+                    <StackPanel
                     Grid.Row="4" Grid.Column="1"
                     Orientation="Horizontal" >
-                    <TextBlock
+                        <TextBlock
                         VerticalAlignment="Center"
                         Text="Test Value: " />
-                    <TextBox Width="200" VerticalAlignment="Center" Text="{Binding Path=NumericValue, Mode=TwoWay}" />
+                        <TextBox Width="200" VerticalAlignment="Center" Text="{Binding Path=NumericValue, Mode=TwoWay}" />
 
-                </StackPanel>
-                <StackPanel
+                    </StackPanel>
+                    <StackPanel
                     Grid.Row="4" Grid.Column="2">
-                    <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (default, no parm): " />
-                        <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumberFormatter}}" />
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='##,##0.00'): " />
-                        <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumberFormatter}, ConverterParameter='##,##0.00'}" />
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='N1'): " />
-                        <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumberFormatter}, ConverterParameter='N1'}" />
-                    </WrapPanel>
-                </StackPanel>
+                        <WrapPanel>
+                            <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (default, no parm): " />
+                            <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumberFormatter}}" />
+                        </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='##,##0.00'): " />
+                            <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumberFormatter}, ConverterParameter='##,##0.00'}" />
+                        </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='N1'): " />
+                            <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumberFormatter}, ConverterParameter='N1'}" />
+                        </WrapPanel>
+                    </StackPanel>
 
 
 
-                <TextBlock
+                    <TextBlock
                     Background="#FFC4E2FD"
                     Grid.Row="5" Grid.Column="0"
                     VerticalAlignment="Center"
                     Text="* NumericMathConverter: " />
-                <StackPanel
+                    <StackPanel
                     Background="#FFC4E2FD"
                     Grid.Row="5" Grid.Column="1"
                     Orientation="Horizontal" >
-                    <TextBlock
+                        <TextBlock
                         VerticalAlignment="Center"
                         Text="Test Value: " />
-                    <TextBox Width="200" VerticalAlignment="Center" Text="{Binding Path=NumericValue, Mode=TwoWay}" />
+                        <TextBox Width="200" VerticalAlignment="Center" Text="{Binding Path=NumericValue, Mode=TwoWay}" />
 
-                </StackPanel>
-                
-                <StackPanel 
+                    </StackPanel>
+
+                    <StackPanel 
                     Background="#FFC4E2FD"
                     Grid.Row="5" Grid.Column="2">
-                    
-                    <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='*|-17'): " />
-                        <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericMathConverter}, ConverterParameter='*|-17'}" />
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='/|-17'): " />
-                        <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericMathConverter}, ConverterParameter='/|-17'}" />
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='MAX|7'): " />
-                        <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericMathConverter}, ConverterParameter='MAX|7'}" />
-                    </WrapPanel>
 
-                </StackPanel>
+                        <WrapPanel>
+                            <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='*|-17'): " />
+                            <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericMathConverter}, ConverterParameter='*|-17'}" />
+                        </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='/|-17'): " />
+                            <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericMathConverter}, ConverterParameter='/|-17'}" />
+                        </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='MAX|7'): " />
+                            <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericMathConverter}, ConverterParameter='MAX|7'}" />
+                        </WrapPanel>
 
-
+                    </StackPanel>
 
 
-                <TextBlock
+
+
+                    <TextBlock
                     Grid.Row="6" Grid.Column="0"
                     VerticalAlignment="Center"
                     Text="* SecondsToTimeSpanConverter: " />
-                <StackPanel
+                    <StackPanel
                     Grid.Row="6" Grid.Column="1"
                     Orientation="Horizontal" >
-                    <TextBlock
+                        <TextBlock
                         VerticalAlignment="Center"
                         Text="Test Value: " />
-                    <TextBox Width="200" VerticalAlignment="Center" Text="{Binding Path=NumericValue, Mode=TwoWay}" />
+                        <TextBox Width="200" VerticalAlignment="Center" Text="{Binding Path=NumericValue, Mode=TwoWay}" />
 
-                </StackPanel>
-                <StackPanel
+                    </StackPanel>
+                    <StackPanel
                     Grid.Row="6" Grid.Column="2">
-                    <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (default, no parm): " />
-                        <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource SecondsToTimeSpanConverter}}" />
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='G'): " />
-                        <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource SecondsToTimeSpanConverter}, ConverterParameter='G'}" />
-                    </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (default, no parm): " />
+                            <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource SecondsToTimeSpanConverter}}" />
+                        </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='G'): " />
+                            <TextBlock Text="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource SecondsToTimeSpanConverter}, ConverterParameter='G'}" />
+                        </WrapPanel>
 
-                </StackPanel>
-                <TextBlock
+                    </StackPanel>
+                    <TextBlock
                     Background="#FFC4E2FD"
                     Grid.Row="7" Grid.Column="0"
                     VerticalAlignment="Center"
                     Text="* StringReplacementConverter: " />
-                <StackPanel
+                    <StackPanel
                     Background="#FFC4E2FD"
                     Grid.Row="7" Grid.Column="1"
                     Orientation="Horizontal" >
-                    <TextBlock
+                        <TextBlock
                         VerticalAlignment="Center"
                         Text="Test Value: " />
-                    <TextBox Width="200" VerticalAlignment="Center" Text="{Binding Path=Value, Mode=TwoWay}" />
+                        <TextBox Width="200" VerticalAlignment="Center" Text="{Binding Path=Value, Mode=TwoWay}" />
 
-                </StackPanel>
-                <StackPanel
+                    </StackPanel>
+                    <StackPanel
                     Background="#FFC4E2FD"
                     Grid.Row="7" Grid.Column="2">
-                    <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='Test|This really works!'): " />
-                        <TextBlock Text="{Binding Path=Value, Mode=OneWay, Converter={StaticResource StringReplacementConverter},ConverterParameter='Test|This really works!'}" />
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='day|dak'): " />
-                        <TextBlock Text="{Binding Path=Value, Mode=OneWay, Converter={StaticResource StringReplacementConverter}, ConverterParameter='day|dak'}" />
-                    </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='Test|This really works!'): " />
+                            <TextBlock Text="{Binding Path=Value, Mode=OneWay, Converter={StaticResource StringReplacementConverter},ConverterParameter='Test|This really works!'}" />
+                        </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock Foreground="Maroon" FontStyle="Italic" Text="Result (parm='day|dak'): " />
+                            <TextBlock Text="{Binding Path=Value, Mode=OneWay, Converter={StaticResource StringReplacementConverter}, ConverterParameter='day|dak'}" />
+                        </WrapPanel>
 
-                </StackPanel>
+                    </StackPanel>
 
-            </Grid>
-            
-        </GroupBox>
-        <GroupBox DockPanel.Dock="Top">
-            <GroupBox.Header>
-                <TextBlock Text="All Other Converters" FontWeight="Bold" />
-            </GroupBox.Header>
-            <StackPanel>
-                <TextBlock Text="PathToImageSourceConverter" />
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Path to Image (file path or application resource: " />
-                    <TextBox Text="{Binding Path=ImagePath, Mode=TwoWay}" MinWidth="300" />
-                    <Button Click="OnBrowseForImage">Browse to file</Button>
+                </Grid>
+
+            </GroupBox>
+            <GroupBox DockPanel.Dock="Top">
+                <GroupBox.Header>
+                    <TextBlock Text="All Other Converters" FontWeight="Bold" />
+                </GroupBox.Header>
+                <StackPanel>
+                    <TextBlock Text="PathToImageSourceConverter" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Path to Image (file path or application resource: " />
+                        <TextBox Text="{Binding Path=ImagePath, Mode=TwoWay}" MinWidth="300" />
+                        <Button Click="OnBrowseForImage">Browse to file</Button>
+                    </StackPanel>
+                    <Image Height="100" Source="{Binding Path=ImagePath, Converter={StaticResource PathToBitmapImageConverter}}"/>
                 </StackPanel>
-                <Image Height="100" Source="{Binding Path=ImagePath, Converter={StaticResource PathToBitmapImageConverter}}"/>
-            </StackPanel>
-        </GroupBox>
-    </DockPanel>
+            </GroupBox>
+        </DockPanel>
     </ScrollViewer>
 </Window>

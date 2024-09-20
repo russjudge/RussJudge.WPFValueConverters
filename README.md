@@ -15,6 +15,14 @@ Parameter syntax:
 
 ConverterParameter='&lt;boolValueToMatch-default true&gt;|&lt;brush definition on match&gt;|&lt;brush definiton on mismatch&gt;'
 
+## BooleanToIntegerConverter
+
+This converter will take a boolean value and generate an Integer value.  The parameters determine the values returned based on true or false.
+
+Parameter syntax: 
+
+ConverterParameter='&lt;valueToReturnIfTrue&gt;|&lt;valueToReturnIfFalse&gt;'
+
 ## BytesToMBFormatter
 
 This converts an int64 number into a string formatted by culture.  It assumes the number represents bytes and divides by factors of 1024 to 
