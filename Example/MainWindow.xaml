@@ -304,6 +304,12 @@
                             ConverterParameter='&gt;=|15|Collapsed|Visible'}"
                             TextWrapping="Wrap"
                             Text="NumericComparisonToVisibilityConverter  (Collapsed--if Numeric &gt;= 15). Parameter Syntax: &lt;operator&gt;|&lt;comparisonValue&gt;|&lt;VisibilityOnTrue&gt;|&lt;VisibilityOnFalse&gt;" />
+                            <TextBlock
+                            Visibility="{Binding Path=NumericValue, Mode=OneWay, Converter={StaticResource NumericComparisonToVisibilityConverter},
+                            ConverterParameter='=|0|Visible|Collapsed'}"
+                            TextWrapping="Wrap"
+                            Text="NumericComparisonToVisibilityConverter  (Visible--if Numeric = 0). Parameter Syntax: &lt;operator&gt;|&lt;comparisonValue&gt;|&lt;VisibilityOnTrue&gt;|&lt;VisibilityOnFalse&gt;" />
+
                         </StackPanel>
                     </GroupBox>
                     <GroupBox>
@@ -323,6 +329,8 @@
                             ConverterParameter='=|Test|COLOR=LightGreen|COLOR=Yellow'}"
                             TextWrapping="Wrap"
                             Text="* ValueMatchToAnimatedBrushConverter (On Background--if comparisonValue matches 'Test').  Parameter Syntax: &lt;operator&gt;|&lt;comparisonValue&gt;|&lt;BrushDefinitionIfMatched&gt;|&lt;BrushDefinitionIfNotMatched&gt;" />
+
+
                             <TextBlock
                             Visibility="{Binding Path=Value, Mode=OneWay, Converter={StaticResource ValueMatchToVisibilityConverter},
                             ConverterParameter='=|Test|Collapsed|Visible'}"

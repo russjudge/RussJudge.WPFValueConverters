@@ -30,7 +30,7 @@ namespace RussJudge.WPFValueConverters
                     {
                         if (decimal.TryParse(parm[1], out decimal comparisonMatch))
                         {
-                            var visibilityOptions = Common.ParmsToVisibility(2, parms);
+                            var visibilityOptions = Common.ParmsToVisibility(2, parm);
                             retVal = Common.NumericOperatorTest(val, oprator, comparisonMatch) ? visibilityOptions.Item1 : visibilityOptions.Item2;
                         }
                     }
