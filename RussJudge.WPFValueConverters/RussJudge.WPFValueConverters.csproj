@@ -18,13 +18,12 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/russjudge/RussJudge.WPFValueConverters</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <VersionPrefix>1.2.0</VersionPrefix>
-    <AssemblyVersion>1.2.0.0</AssemblyVersion>
-    <FileVersion>1.2.0.0</FileVersion>
+    <VersionPrefix>1.2.1</VersionPrefix>
+    <AssemblyVersion>1.2.1.0</AssemblyVersion>
+    <FileVersion>1.2.1.0</FileVersion>
     <PackageReleaseNotes>
-      Added "BooleanToIntegerConverter".
-      Added Example to demonstrate BooleanToIntegerConverter.
-      Updated Readme.md.</PackageReleaseNotes>
+      Bug fix on NumericComparisonToVisibilityConverter
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
