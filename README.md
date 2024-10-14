@@ -56,11 +56,19 @@ Parameter Syntax:
 
 ConverterParameter='&lt;BrushIfNull&gt;|&lt;BrushIfNotNull&gt;'
 
+## NullToBooleanConverter
+Converts a nullable objects to a boolean value, based on parameters passed. If the object is not null, then the opposite 
+boolean value is returned.
+
+Parameter Syntax (optional, default is false if null, true if not null):
+
+ConverterParameter='&lt;BooleanValueIfNull&gt;'
+
 
 ## NullToVisibilityConverter
 Converts a nullable objects to Visibility, based on parameters passed.
 
-Parameter Syntax:
+Parameter Syntax (optional, default is Collapsed if null, Visible if not null):
 
 ConverterParameter='&lt;VisibilityIfNull&gt;|&lt;VisibilityIfNotNull&gt;'
 
