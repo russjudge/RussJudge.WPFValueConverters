@@ -18,12 +18,11 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/russjudge/RussJudge.WPFValueConverters</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <VersionPrefix>1.3.0</VersionPrefix>
-    <AssemblyVersion>1.3.0.0</AssemblyVersion>
-    <FileVersion>1.3.0.0</FileVersion>
+    <VersionPrefix>1.4.0</VersionPrefix>
+    <AssemblyVersion>1.4.0.0</AssemblyVersion>
+    <FileVersion>1.4.0.0</FileVersion>
     <PackageReleaseNotes>
-      Added NullToBooleanConverter.
-      Modified NullToVisiblityConverter so that the ConverterParameter is optional and defaults to "Collapsed".
+      Added ValueMatchToBooleanConverter.
     </PackageReleaseNotes>
   </PropertyGroup>
 

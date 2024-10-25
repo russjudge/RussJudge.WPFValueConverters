@@ -145,6 +145,13 @@ Converts a value to a brush based on matching on the parameter.  The value is co
 Parameter Syntax:
 ConverterParameter='&lt;operator&gt;|&lt;comparisonValueMatch&gt;|&lt;brushOnTrue&gt;|&lt;brushOnFalse&gt;'
 
+## ValueMatchToBooleanConverter
+Convers a value to a boolean based on matching on the parameter.  The value is converted to a string (.ToString()) to perform the match.
+
+
+Parameter Syntax:
+ConverterParameter='&lt;operator&gt;|&lt;comparisonValueMatch&gt;|&lt;booleanIfMatch&gt;|&lt;booleanOnNotMatch&gt;'
+
 ## ValueMatchToVisibilityConverter
 Converts a value to visibility based on matching on the parameter.  The value is converted to a string (.ToString()) to perform the match.
 
