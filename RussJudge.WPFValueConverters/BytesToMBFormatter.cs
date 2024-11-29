@@ -10,7 +10,11 @@ namespace RussJudge.WPFValueConverters
         public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             const int divider = 1024;
+#if NET8_0_OR_GREATER
             string[] typesTo = [string.Empty, "KB", "MB", "GB", "TB", "PB", "EB"];
+#else
+            string[] typesTo = { string.Empty, "KB", "MB", "GB", "TB", "PB", "EB" };
+#endif
             if (value is int bytes)
             {
                 int pow = 0;

@@ -108,18 +108,13 @@ namespace RussJudge.WPFValueConverters
                                 long val1 = System.Convert.ToInt64(value);
                                 if (long.TryParse(parms[1], out long adjustment1))
                                 {
-                                    switch (parms[0])
+                                    return parms[0] switch
                                     {
-                                        case "&":
-                                        case "&amp;":
-                                            return val1 & adjustment1;
-                                        case "^":
-                                            return val1 ^ adjustment1;
-                                        case "\\":
-                                            return val1 | adjustment1;
-                                        default:
-                                            return value;
-                                    }
+                                        "&" or "&amp;" => val1 & adjustment1,
+                                        "^" => val1 ^ adjustment1,
+                                        "\\" => val1 | adjustment1,
+                                        _ => value,
+                                    };
                                 }
                                 else
                                 {
@@ -141,7 +136,11 @@ namespace RussJudge.WPFValueConverters
                                             return val1 >> adjustment1;
                                         case ">>>":
                                         case "&gt;&gt;&gt;":
+#if NET7_0_OR_GREATER
                                             return val1 >>> adjustment1;
+#else
+                                            return value;                                      
+#endif
                                         default:
                                             return value;
                                     }

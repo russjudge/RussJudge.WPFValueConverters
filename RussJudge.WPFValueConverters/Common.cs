@@ -85,14 +85,10 @@ namespace RussJudge.WPFValueConverters
                                 }
                                 break;
                             case "DURATION":
-#pragma warning disable CA1806 // Do not ignore method results
                                 int.TryParse(keyValue[1], out animationDuration);
-#pragma warning restore CA1806 // Do not ignore method results
                                 break;
                             case "AUTOREVERSE":
-#pragma warning disable CA1806 // Do not ignore method results
                                 bool.TryParse(keyValue[1], out autoReverse);
-#pragma warning restore CA1806 // Do not ignore method results
                                 break;
                         }
                     }
@@ -119,41 +115,19 @@ namespace RussJudge.WPFValueConverters
 
         public static bool OperatorTest(object val, string operatorValue, string compareValue)
         {
-            bool retVal;
-
             string? value = val?.ToString();
 
-            if (value == null)
+            value ??= string.Empty;
+            var retVal = operatorValue switch
             {
-                value = string.Empty;
-            }
-            switch (operatorValue)
-            {
-                case "<":
-                case "&lt;":
-                    retVal = value.CompareTo(compareValue) < 0;
-                    break;
-                case "<=":
-                case "&lt;=":
-                    retVal = value.CompareTo(compareValue) <= 0;
-                    break;
-                case ">":
-                case "&gt;":
-                    retVal = value.CompareTo(compareValue) > 0;
-                    break;
-                case ">=":
-                case "&gt;=":
-                    retVal = value.CompareTo(compareValue) >= 0;
-                    break;
-                case "=":
-                    retVal = value.Equals(compareValue);
-                    break;
-                case "!=":
-                    retVal = !value.Equals(compareValue);
-                    break;
-                default:
-                    throw new NotSupportedException("Specified Operator is not supported.");
-            }
+                "<" or "&lt;" => value.CompareTo(compareValue) < 0,
+                "<=" or "&lt;=" => value.CompareTo(compareValue) <= 0,
+                ">" or "&gt;" => value.CompareTo(compareValue) > 0,
+                ">=" or "&gt;=" => value.CompareTo(compareValue) >= 0,
+                "=" => value.Equals(compareValue),
+                "!=" => !value.Equals(compareValue),
+                _ => throw new NotSupportedException("Specified Operator is not supported."),
+            };
             return retVal;
         }
         /// <summary>
