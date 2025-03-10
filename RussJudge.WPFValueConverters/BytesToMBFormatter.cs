@@ -15,11 +15,11 @@ namespace RussJudge.WPFValueConverters
 #else
             string[] typesTo = { string.Empty, "KB", "MB", "GB", "TB", "PB", "EB" };
 #endif
-            if (value is int bytes)
+            if (value is long bytes)
             {
                 int pow = 0;
 
-                int newVal = bytes;
+                long newVal = bytes;
                 while (newVal > divider && pow < typesTo.Length)
                 {
                     pow++;

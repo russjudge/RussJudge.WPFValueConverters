@@ -142,14 +142,14 @@ namespace Example
         public static readonly DependencyProperty ByteValueProperty =
            DependencyProperty.Register(
                nameof(ByteValue),
-               typeof(int),
+               typeof(long),
                typeof(MainWindow));
 
-        public int ByteValue
+        public long ByteValue
         {
             get
             {
-                return (int)this.GetValue(ByteValueProperty);
+                return (long)this.GetValue(ByteValueProperty);
             }
             set
             {
