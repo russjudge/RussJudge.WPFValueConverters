@@ -6,7 +6,7 @@
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
     <Description>A collection of ValueConverters that I've built over the years</Description>
-    <Copyright>Copyright (c) Russ Judge 2023</Copyright>
+    <Copyright>Copyright (c) Russ Judge 2023, 2025</Copyright>
     <ApplicationIcon>rjicon.ico</ApplicationIcon>
     <Title>WPF Value Converters</Title>
     <Authors>Russ Judge</Authors>
@@ -18,12 +18,19 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/russjudge/RussJudge.WPFValueConverters</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <VersionPrefix>1.4.0</VersionPrefix>
-    <AssemblyVersion>1.4.0.0</AssemblyVersion>
-    <FileVersion>1.4.0.0</FileVersion>
-    <PackageReleaseNotes>
-      Added ValueMatchToBooleanConverter.
+    <VersionPrefix>1.5.0</VersionPrefix>
+    <AssemblyVersion>1.5.0.0</AssemblyVersion>
+    <FileVersion>1.5.0.0</FileVersion>
+    <PackageReleaseNotes>Bug fix on BytesToMBFormatter.  It had only worked with int values and should allow for long values.
     </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows7.0|AnyCPU'">
+    <WarningLevel>8</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows7.0|AnyCPU'">
+    <WarningLevel>8</WarningLevel>
   </PropertyGroup>
 
   <ItemGroup>

@@ -219,9 +219,11 @@ namespace Example
 
         private void OnBrowseForImage(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog diag = new();
-            diag.Title = "Select Image file";
-            diag.Filter = "Image Files|*.jpg;*.gif;*.png|All Files|*.*";
+            OpenFileDialog diag = new()
+            {
+                Title = "Select Image file",
+                Filter = "Image Files|*.jpg;*.gif;*.png|All Files|*.*"
+            };
             if (diag.ShowDialog().GetValueOrDefault())
             {
                 ImagePath = diag.FileName;
@@ -230,9 +232,11 @@ namespace Example
 
         private void OnBrowseForFile(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog diag = new();
-            diag.Title = "Select file";
-            diag.Filter = "All Files|*.*";
+            OpenFileDialog diag = new()
+            {
+                Title = "Select file",
+                Filter = "All Files|*.*"
+            };
             if (diag.ShowDialog().GetValueOrDefault())
             {
                 FilePathValue = diag.FileName;

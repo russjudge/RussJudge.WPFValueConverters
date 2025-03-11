@@ -85,10 +85,16 @@ namespace RussJudge.WPFValueConverters
                                 }
                                 break;
                             case "DURATION":
-                                int.TryParse(keyValue[1], out animationDuration);
+                                if (!int.TryParse(keyValue[1], out animationDuration))
+                                {
+                                    animationDuration = 1;
+                                }
                                 break;
                             case "AUTOREVERSE":
-                                bool.TryParse(keyValue[1], out autoReverse);
+                                if (!bool.TryParse(keyValue[1], out autoReverse))
+                                {
+                                    autoReverse = false;
+                                }
                                 break;
                         }
                     }
@@ -160,7 +166,14 @@ namespace RussJudge.WPFValueConverters
 
             if (Enum.TryParse(typeof(Visibility), value, out object? v))
             {
-                return (Visibility)v;
+                if (v == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return (Visibility)v;
+                }
             }
             else
             {
